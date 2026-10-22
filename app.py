@@ -168,31 +168,30 @@ if run_button:
 
     if ok:
         st.success(f"Completed {len(ok)} of {len(MODEL_SPECS)} model predictions.")
-        for start_idx in range(0, len(ok), 2):
-            model_cols = st.columns(2, gap="large")
-            for col, item in zip(model_cols, ok[start_idx:start_idx + 2]):
-                with col:
-                    spec = item["spec"]
-                    mask_img = colorize_mask(item["mask"])
-                    overlay_img = overlay_mask(rgb_resized, item["mask"], alpha=0.48)
-                    st.markdown(f'<div class="model-title">{spec["name"]}</div>', unsafe_allow_html=True)
-                    st.caption(f"Inference: {item['seconds']:.2f} s · {spec['short']}")
-                    meta = item["info"].get("display_metric")
-                    if meta:
-                        st.caption(meta)
-                    img_cols = st.columns(2, gap="small")
-                    with img_cols[0]:
-                        st.image(mask_img, caption="Predicted mask", use_container_width=True)
-                    with img_cols[1]:
-                        st.image(overlay_img, caption="RGB overlay", use_container_width=True)
-                    with st.expander("Class pixel counts"):
-                        counts = {CLASS_NAMES[c]: int((item["mask"] == c).sum()) for c in range(len(CLASS_NAMES))}
-                        total = max(1, item["mask"].size)
-                        st.dataframe(
-                            [{"Class": name, "Pixels": count, "Share": f"{count / total:.2%}"}
-                             for name, count in counts.items()],
-                            hide_index=True, use_container_width=True,
-                        )
+        st.caption("Each model is shown in its own full-width section below. Scroll down to compare all four outputs.")
+        for item in ok:
+            spec = item["spec"]
+            with st.container(border=True):
+                st.subheader(spec["name"])
+                st.caption(f"Inference: {item['seconds']:.2f} s · {spec['short']}")
+                meta = item["info"].get("display_metric")
+                if meta:
+                    st.caption(meta)
+                mask_img = colorize_mask(item["mask"])
+                overlay_img = overlay_mask(rgb_resized, item["mask"], alpha=0.48)
+                img_cols = st.columns(2, gap="large")
+                with img_cols[0]:
+                    st.image(mask_img, caption=f"{spec['name']} · predicted mask", use_container_width=True)
+                with img_cols[1]:
+                    st.image(overlay_img, caption=f"{spec['name']} · RGB overlay", use_container_width=True)
+                with st.expander(f"{spec['name']} · class pixel counts"):
+                    counts = {CLASS_NAMES[c]: int((item["mask"] == c).sum()) for c in range(len(CLASS_NAMES))}
+                    total = max(1, item["mask"].size)
+                    st.dataframe(
+                        [{"Class": name, "Pixels": count, "Share": f"{count / total:.2%}"}
+                         for name, count in counts.items()],
+                        hide_index=True, use_container_width=True,
+                    )
         st.divider()
         st.subheader("Shared class legend")
         legend_cols = st.columns(3)
