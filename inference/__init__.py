@@ -1,1 +1,1 @@
-"""Inference utilities for the RGBT comparison app."""
+"""Inference adapters for the RGB–thermal model comparison app."""

@@ -25,9 +25,11 @@ MODEL_SPECS = [
     {
         "id": "cmaf",
         "name": "ResNet-18 + CMAF",
-        "short": "Dual-stream ResNet-18 + cross-modal attention",
-        "source_rel": "architectures/cmaf/my_model.py",
-        "weight_rel": "weights/cmaf_best_checkpoint.pt",
+        "short": "Pretrained dual-stream ResNet-18 + 5-scale cross-modal attention",
+        "source_rel": "architectures/cmaf/my_model_v2.py",
+        "weight_rel": "weights/cmaf_resnet18_cmaf_best_checkpoint.pt",
+        "legacy_source_rel": "architectures/cmaf/my_model.py",
+        "legacy_weight_rel": "weights/cmaf_best_checkpoint.pt",
     },
     {
         "id": "rtfnet18v2",
@@ -38,6 +40,86 @@ MODEL_SPECS = [
     },
 ]
 
+
+def _is_real_checkpoint(path: Path) -> bool:
+    """Ignore missing files and Git LFS pointer text files without deserializing weights."""
+    try:
+        if not path.is_file() or path.stat().st_size < 1024:
+            return False
+        with path.open("rb") as file:
+            head = file.read(160)
+        return not head.startswith(b"version https://git-lfs.github.com/spec/v1")
+    except OSError:
+        return False
+
+
+def find_cmaf_v2_checkpoint(root: Path) -> Path | None:
+    """Find the new ResNet-18+CMAF checkpoint; app-local weight wins over the worktree."""
+    candidates = [
+        root / "weights/cmaf_resnet18_cmaf_best_checkpoint.pt",
+        # Existing worktree path used by an earlier setup.
+        root.parent / "cmaf-my-model-worktree/checkpoints/resnet18_crossmodal_attention_v2_1_final/best_checkpoint.pt",
+        root.parent / "cmaf-my-model-worktree/checkpoints/resnet18_crossmodal_attention_v2_1/best_checkpoint.pt",
+        # Dedicated upstream clone containing the verified epoch-22 v2.1 checkpoint.
+        root.parent / "CMAF_ResNet18_Upstream/checkpoints/resnet18_crossmodal_attention_v2_1_final/best_checkpoint.pt",
+        root.parent / "CMAF_ResNet18_Upstream/checkpoints/resnet18_crossmodal_attention_v2_1/best_checkpoint.pt",
+        root / "architectures/cmaf/checkpoints/resnet18_crossmodal_attention_v2_1_final/best_checkpoint.pt",
+        root / "architectures/cmaf/checkpoints/resnet18_crossmodal_attention_v2_1/best_checkpoint.pt",
+    ]
+    # Catch a renamed final run directory inside either known local clone.
+    for checkpoints_root in (
+        root.parent / "cmaf-my-model-worktree/checkpoints",
+        root.parent / "CMAF_ResNet18_Upstream/checkpoints",
+    ):
+        if checkpoints_root.is_dir():
+            candidates.extend(sorted(checkpoints_root.glob("resnet18_crossmodal_attention_v2_1*/best_checkpoint.pt")))
+    for candidate in candidates:
+        if _is_real_checkpoint(candidate):
+            return candidate.resolve()
+    return None
+
+
+def get_model_asset_status(model_id: str, root: str | Path) -> dict[str, Any]:
+    """Inspect checkpoint availability for the UI without loading model tensors."""
+    root = Path(root)
+    if model_id == "cmaf":
+        v2_source = root / "architectures/cmaf/my_model_v2.py"
+        v2_checkpoint = find_cmaf_v2_checkpoint(root)
+        if v2_source.is_file() and v2_checkpoint is not None:
+            return {
+                "available": True,
+                "variant": "CMAF ResNet-18 v2.1",
+                "checkpoint": str(v2_checkpoint),
+                "is_legacy": False,
+            }
+        legacy_source = root / "architectures/cmaf/my_model.py"
+        legacy_checkpoint = root / "weights/cmaf_best_checkpoint.pt"
+        if legacy_source.is_file() and _is_real_checkpoint(legacy_checkpoint):
+            return {
+                "available": True,
+                "variant": "Legacy scratch CMAF baseline",
+                "checkpoint": str(legacy_checkpoint.resolve()),
+                "is_legacy": True,
+            }
+        return {
+            "available": False,
+            "variant": "CMAF checkpoint missing",
+            "checkpoint": str(root / "weights/cmaf_resnet18_cmaf_best_checkpoint.pt"),
+            "is_legacy": False,
+        }
+
+    spec = next((item for item in MODEL_SPECS if item["id"] == model_id), None)
+    if spec is None:
+        return {"available": False, "variant": "Unknown model", "checkpoint": "", "is_legacy": False}
+    checkpoint = root / spec["weight_rel"]
+    source = root / spec["source_rel"]
+    available = _is_real_checkpoint(checkpoint) and source.is_file()
+    return {
+        "available": available,
+        "variant": spec["name"],
+        "checkpoint": str(checkpoint.resolve()),
+        "is_legacy": False,
+    }
 
 def _load_python_file(module_name: str, source_path: Path):
     if not source_path.is_file():
@@ -74,6 +156,18 @@ def _state_dict(checkpoint: dict[str, Any]) -> dict[str, torch.Tensor]:
 def _saved_metric(model_id: str, checkpoint: dict[str, Any]) -> str | None:
     epoch = checkpoint.get("best_epoch", checkpoint.get("epoch"))
     epoch_text = f" · checkpoint epoch {epoch}" if epoch is not None else ""
+    if model_id == "cmaf" and checkpoint.get("architecture_id") == "resnet18_dual_stream_cross_modal_attention_v2_1":
+        metrics = checkpoint.get("best_val_metrics", {}) or {}
+        miou = metrics.get("miou", checkpoint.get("best_metric_val"))
+        fg = metrics.get("miou_foreground")
+        pixel_acc = metrics.get("pixel_acc")
+        if miou is not None:
+            result = f"Saved validation mIoU: {float(miou):.2%}"
+            if fg is not None:
+                result += f" · foreground: {float(fg):.2%}"
+            if pixel_acc is not None:
+                result += f" · pixel accuracy: {float(pixel_acc):.2%}"
+            return result + epoch_text
     if model_id == "csfnet":
         metrics = checkpoint.get("metrics", {})
         miou = metrics.get("mIoU")
@@ -201,17 +295,52 @@ def _normalize_model_key(key: str, root: Path, device: str):
         meta = _normalization_metadata(key, checkpoint)
 
     elif key == "cmaf":
-        source = root / "architectures/cmaf/my_model.py"
-        weight_path = root / "weights/cmaf_best_checkpoint.pt"
-        checkpoint = _load_checkpoint(weight_path, device)
-        module = _load_python_file("app_cmaf_my_model", source)
-        snapshot_model = checkpoint.get("config_snapshot", {}).get("model", {})
-        class_count = int(snapshot_model.get("NUM_CLASSES", 9))
-        in_channels = int(snapshot_model.get("IN_CHANNELS", 4))
-        base_channels = int(snapshot_model.get("BASE_CHANNELS", 16))
-        model = module.build_model(num_classes=class_count, in_channels=in_channels, base_channels=base_channels)
-        model.load_state_dict(_state_dict(checkpoint), strict=True)
-        meta = _normalization_metadata(key, checkpoint)
+        # Prefer the newer pretrained ResNet-18 + 5-scale CMAF checkpoint. If it is
+        # not available, keep the existing scratch baseline working rather than
+        # breaking the other model comparisons.
+        v2_source = root / "architectures/cmaf/my_model_v2.py"
+        v2_weight_path = find_cmaf_v2_checkpoint(root)
+        if v2_weight_path is not None:
+            if not v2_source.is_file():
+                raise FileNotFoundError(
+                    f"CMAF v2 checkpoint found at {v2_weight_path}, but its source is missing: {v2_source}"
+                )
+            checkpoint = _load_checkpoint(v2_weight_path, "cpu")
+            module = _load_python_file("app_cmaf_resnet18_v2_model", v2_source)
+            expected_arch = getattr(module, "ARCHITECTURE_ID", None)
+            actual_arch = checkpoint.get("architecture_id") or checkpoint.get("config_snapshot", {}).get("architecture_id")
+            if actual_arch and expected_arch and actual_arch != expected_arch:
+                raise RuntimeError(
+                    f"CMAF v2 checkpoint architecture mismatch: checkpoint={actual_arch!r}, "
+                    f"source={expected_arch!r}. Use a checkpoint from the matching CMAF v2.1 branch."
+                )
+            model = module.build_model(num_classes=9, in_channels=4, pretrained=False)
+            model.load_state_dict(_state_dict(checkpoint), strict=True)
+            meta = {
+                "architecture_variant": "cmaf_resnet18_v2_1",
+                "cmaf_variant": "ResNet-18 + CMAF v2.1 (pretrained dual-stream)",
+                "normalization_source": "raw RGB-T values scaled to [0,1]; normalization is applied inside my_model_v2.forward",
+                "actual_checkpoint_path": str(v2_weight_path),
+            }
+        else:
+            legacy_source = root / "architectures/cmaf/my_model.py"
+            legacy_weight_path = root / "weights/cmaf_best_checkpoint.pt"
+            if not legacy_source.is_file():
+                raise FileNotFoundError(f"Legacy CMAF source is missing: {legacy_source}")
+            checkpoint = _load_checkpoint(legacy_weight_path, device)
+            module = _load_python_file("app_cmaf_legacy_my_model", legacy_source)
+            snapshot_model = checkpoint.get("config_snapshot", {}).get("model", {})
+            class_count = int(snapshot_model.get("NUM_CLASSES", 9))
+            in_channels = int(snapshot_model.get("IN_CHANNELS", 4))
+            base_channels = int(snapshot_model.get("BASE_CHANNELS", 16))
+            model = module.build_model(num_classes=class_count, in_channels=in_channels, base_channels=base_channels)
+            model.load_state_dict(_state_dict(checkpoint), strict=True)
+            meta = _normalization_metadata(key, checkpoint)
+            meta.update({
+                "architecture_variant": "cmaf_legacy_baseline",
+                "cmaf_variant": "Legacy scratch CMAF baseline",
+                "actual_checkpoint_path": str(legacy_weight_path.resolve()),
+            })
 
     elif key == "rtfnet18v2":
         source = root / "architectures/rtfnet18v2/model19_v2.py"

@@ -46,16 +46,17 @@ def _tensor_from_image(image: Image.Image, mean, std, channels: int) -> torch.Te
 
 def prepare_rgb_thermal(model_id: str, rgb_image: Image.Image, thermal_image: Image.Image, metadata: dict, device: str):
     """Prepare image tensors following each model's actual training data pipeline."""
-    if model_id == "mfnet":
-        # MFNet's dataset.py uses ToTensorV2() then divides all four uint8 channels
-        # by 255. It does NOT apply the RGB_MEAN/RGB_STD/THR_MEAN/THR_STD constants.
-        # Keep the RGB and thermal tensors raw in [0, 1] so concatenated RGB-T input
-        # matches the distribution seen during MFNet training.
+    if model_id == "mfnet" or (
+        model_id == "cmaf" and metadata.get("architecture_variant") == "cmaf_resnet18_v2_1"
+    ):
+        # MFNet dataset.py returns raw four-channel data /255. The newer CMAF v2.1
+        # dataset does the same and normalizes internally in my_model_v2.forward.
+        # Preserve the existing separate preprocessing paths for CSFNet-2, legacy
+        # CMAF, and RTFNet18V2 exactly as before.
         rgb = _raw_tensor(rgb_image, 3)
         thermal = _raw_tensor(thermal_image, 1)
     else:
-        # Intentionally preserve the pre-existing code path for CSFNet-2, CMAF,
-        # and RTFNet18V2. This MFNet-specific fix does not change their preprocessing.
+        # Keep the original preprocessing path for CSFNet-2, legacy CMAF, and RTFNet18V2.
         rgb = _tensor_from_image(
             rgb_image,
             metadata.get("rgb_mean", [0.485, 0.456, 0.406]),
