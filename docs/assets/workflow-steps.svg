@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="370" viewBox="0 0 1500 370" role="img" aria-labelledby="t d">
+<title id="t">How to run a comparison</title><desc id="d">Four steps: choose an input source, run all four models, inspect results, optionally attach ground truth and download.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1500" height="370" fill="url(#bg)"/>
+<text x="40" y="52" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#e8eefc" text-anchor="start" >Run a comparison in four steps</text>
+<rect x="40" y="110" width="330" height="196" rx="14" fill="#13224a" stroke="#3b82f6" stroke-width="2" />
+<circle cx="86" cy="162" r="26" fill="#3b82f6"/><text x="86" y="171" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#06122b" text-anchor="middle" >1</text>
+<text x="126" y="170" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Choose input</text>
+<text x="66" y="232" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="66" dy="0">Pick 4-channel PNG, separate RGB +</tspan><tspan x="66" dy="26">thermal, or a local MFNet sample.</tspan></text>
+<path d="M374,235 L396,235" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="400" y="110" width="330" height="196" rx="14" fill="#13224a" stroke="#22d3ee" stroke-width="2" />
+<circle cx="446" cy="162" r="26" fill="#22d3ee"/><text x="446" y="171" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#06122b" text-anchor="middle" >2</text>
+<text x="486" y="170" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Run all four models</text>
+<text x="426" y="232" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="426" dy="0">Click “Run all four models” (or</tspan><tspan x="426" dy="26">“Run comparison” in the sidebar).</tspan></text>
+<path d="M734,235 L756,235" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="760" y="110" width="330" height="196" rx="14" fill="#13224a" stroke="#a78bfa" stroke-width="2" />
+<circle cx="806" cy="162" r="26" fill="#a78bfa"/><text x="806" y="171" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#06122b" text-anchor="middle" >3</text>
+<text x="846" y="170" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Inspect results</text>
+<text x="786" y="232" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="786" dy="0">Compare masks, overlays,</tspan><tspan x="786" dy="26">diagnostics, class counts and the</tspan><tspan x="786" dy="26">cross-model table.</tspan></text>
+<path d="M1094,235 L1116,235" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="1120" y="110" width="330" height="196" rx="14" fill="#13224a" stroke="#f59e0b" stroke-width="2" />
+<circle cx="1166" cy="162" r="26" fill="#f59e0b"/><text x="1166" y="171" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#06122b" text-anchor="middle" >4</text>
+<text x="1206" y="170" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Evaluate &amp; download</text>
+<text x="1146" y="232" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="1146" dy="0">Optionally attach a label mask for</tspan><tspan x="1146" dy="26">scene mIoU; download PNGs or the</tspan><tspan x="1146" dy="26">ZIP.</tspan></text>
+<text x="40" y="346" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >Saved checkpoint metrics are displayed as metadata; scene metrics appear only when a matching ground-truth mask is attached.</text>
+</svg>

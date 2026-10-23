@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="t d">
+<title id="t">RGB–Thermal Perception: Semantic Segmentation Benchmark</title><desc id="d">Banner showing an RGB scene and a thermal scene feeding a segmentation mask, with the four compared models: MFNet, CSFNet-2, ResNet-18 + CMAF v2.1 and RTFNet18V2.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1280" height="420" fill="url(#bg)"/>
+<g stroke="#1a2c5c" stroke-width="1" opacity="0.5"><path d="M0,0 V420"/><path d="M64,0 V420"/><path d="M128,0 V420"/><path d="M192,0 V420"/><path d="M256,0 V420"/><path d="M320,0 V420"/><path d="M384,0 V420"/><path d="M448,0 V420"/><path d="M512,0 V420"/><path d="M576,0 V420"/><path d="M640,0 V420"/><path d="M704,0 V420"/><path d="M768,0 V420"/><path d="M832,0 V420"/><path d="M896,0 V420"/><path d="M960,0 V420"/><path d="M1024,0 V420"/><path d="M1088,0 V420"/><path d="M1152,0 V420"/><path d="M1216,0 V420"/><path d="M0,0 H1280"/><path d="M0,64 H1280"/><path d="M0,128 H1280"/><path d="M0,192 H1280"/><path d="M0,256 H1280"/><path d="M0,320 H1280"/><path d="M0,384 H1280"/></g>
+<rect x="0" y="0" width="8" height="420" fill="url(#acc)"/>
+<text x="64" y="86" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#22d3ee" text-anchor="start" letter-spacing="3">RGB–THERMAL PERCEPTION</text>
+<text x="64" y="150" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="50" font-weight="800" fill="#e8eefc" text-anchor="start" >Semantic Segmentation</text>
+<text x="64" y="212" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="50" font-weight="800" fill="url(#acc)" text-anchor="start" >Benchmark</text>
+<text x="64" y="262" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="64" dy="0">Compare four multimodal segmentation models</tspan><tspan x="64" dy="30">on aligned RGB–thermal scenes.</tspan></text>
+<rect x="64" y="336" width="92" height="40" rx="20.0" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="110.0" y="361.25" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e8eefc" text-anchor="middle" >MFNet</text>
+<rect x="168" y="336" width="118" height="40" rx="20.0" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="227.0" y="361.25" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e8eefc" text-anchor="middle" >CSFNet-2</text>
+<rect x="298" y="336" width="215" height="40" rx="20.0" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="405.5" y="361.25" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e8eefc" text-anchor="middle" >ResNet-18 + CMAF v2.1</text>
+<rect x="525" y="336" width="138" height="40" rx="20.0" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="594.0" y="361.25" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e8eefc" text-anchor="middle" >RTFNet18V2</text>
+<clipPath id="ca"><rect x="770" y="84" width="150" height="94" rx="8"/></clipPath>
+<g clip-path="url(#ca)"><g transform="translate(770,84) scale(0.9375)">
+<rect width="160" height="100" fill="#6f8fb8"/><rect x="0" y="18" width="40" height="26" fill="#4a566b"/><rect x="108" y="8" width="52" height="36" fill="#4a566b"/><polygon points="0,100 160,100 160,66 105,44 55,44 0,66" fill="#4b4f58"/><polygon points="160,66 105,44 99,44 148,74 160,74" fill="#8d93a0"/><rect x="60" y="58" width="44" height="20" rx="4" fill="#b04a4a"/><rect x="68" y="49" width="28" height="12" rx="3" fill="#b04a4a"/><rect x="118" y="52" width="8" height="24" rx="3" fill="#2e4f8f"/><circle cx="122" cy="47" r="4.5" fill="#e0b79a"/><g fill="none" stroke="#d4a82a" stroke-width="2"><circle cx="22" cy="82" r="7"/><circle cx="42" cy="82" r="7"/><path d="M22,82 L30,70 L42,82 M30,70 L36,70"/></g><polygon points="136,88 142,72 148,88" fill="#e8743b"/></g></g>
+<rect x="770" y="84" width="150" height="94" rx="8" fill="none" stroke="#2b4286" stroke-width="1.5"/>
+<text x="845.0" y="200" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#e8eefc" text-anchor="middle" >RGB</text>
+<clipPath id="cb"><rect x="770" y="232" width="150" height="94" rx="8"/></clipPath>
+<g clip-path="url(#cb)"><g transform="translate(770,232) scale(0.9375)">
+<rect width="160" height="100" fill="#1b0f3a"/><rect x="0" y="18" width="40" height="26" fill="#2a1450"/><rect x="108" y="8" width="52" height="36" fill="#2a1450"/><polygon points="0,100 160,100 160,66 105,44 55,44 0,66" fill="#4a1d6b"/><polygon points="160,66 105,44 99,44 148,74 160,74" fill="#6a2a85"/><rect x="60" y="58" width="44" height="20" rx="4" fill="#e8590c"/><rect x="68" y="49" width="28" height="12" rx="3" fill="#e8590c"/><rect x="118" y="52" width="8" height="24" rx="3" fill="#ffd43b"/><circle cx="122" cy="47" r="4.5" fill="#fff3bf"/><g fill="none" stroke="#c2255c" stroke-width="2"><circle cx="22" cy="82" r="7"/><circle cx="42" cy="82" r="7"/><path d="M22,82 L30,70 L42,82 M30,70 L36,70"/></g><polygon points="136,88 142,72 148,88" fill="#9c36b5"/><circle cx="122" cy="62" r="14" fill="#ffd43b" opacity="0.18"/><circle cx="96" cy="70" r="10" fill="#ff922b" opacity="0.25"/></g></g>
+<rect x="770" y="232" width="150" height="94" rx="8" fill="none" stroke="#2b4286" stroke-width="1.5"/>
+<text x="845.0" y="348" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#e8eefc" text-anchor="middle" >Thermal</text>
+<rect x="956" y="162" width="104" height="92" rx="14" fill="#13224a" stroke="#22d3ee" stroke-width="2" />
+<text x="1008" y="202" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="middle" >Fuse &amp;</text>
+<text x="1008" y="226" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="middle" >predict</text>
+<path d="M926,131 C950,131 930,190 954,196" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M926,279 C950,279 930,225 954,220" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M1062,208 L1090,208" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<clipPath id="cc"><rect x="1094" y="161" width="150" height="94" rx="8"/></clipPath>
+<g clip-path="url(#cc)"><g transform="translate(1094,161) scale(0.9375)">
+<rect width="160" height="100" fill="#282828"/><polygon points="160,66 105,44 99,44 148,74 160,74" fill="#8a2be2"/><rect x="60" y="58" width="44" height="20" rx="4" fill="#dc143c"/><rect x="68" y="49" width="28" height="12" rx="3" fill="#dc143c"/><rect x="118" y="52" width="8" height="24" rx="3" fill="#4169e1"/><circle cx="122" cy="47" r="4.5" fill="#4169e1"/><rect x="13" y="69" width="37" height="20" rx="8" fill="#daa520"/><polygon points="136,88 142,72 148,88" fill="#ff7f50"/></g></g>
+<rect x="1094" y="161" width="150" height="94" rx="8" fill="none" stroke="#2b4286" stroke-width="1.5"/>
+<text x="1169" y="282" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#e8eefc" text-anchor="middle" >Segmentation mask</text>
+<text x="1169" y="306" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="middle" >9 classes</text>
+<text x="1256" y="404" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9db0d8" text-anchor="end" >Illustrative graphic · not real model output</text>
+</svg>

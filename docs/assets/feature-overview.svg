@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="640" viewBox="0 0 1500 640" role="img" aria-labelledby="t d">
+<title id="t">Feature overview</title><desc id="d">Six capability cards: input modes, four-model comparison, masks and overlays, thermal preview and diagnostics, class analysis, optional ground-truth evaluation and downloads.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1500" height="640" fill="url(#bg)"/>
+<text x="40" y="52" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#e8eefc" text-anchor="start" >What the app provides</text>
+<text x="40" y="82" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start" >Every item below is implemented in app.py.</text>
+<rect x="40" y="118" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="64" y="144" width="52" height="52" rx="12" fill="#182a58" stroke="#3b82f6" stroke-width="2" />
+<text x="90" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#3b82f6" text-anchor="middle" >IN</text>
+<text x="134" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Three input modes</text>
+<text x="66" y="236" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="66" dy="0">4-channel PNG, separate RGB +</tspan><tspan x="66" dy="26">thermal files, or a local MFNet</tspan><tspan x="66" dy="26">sample</tspan></text>
+<rect x="530" y="118" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="554" y="144" width="52" height="52" rx="12" fill="#182a58" stroke="#22d3ee" stroke-width="2" />
+<text x="580" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#22d3ee" text-anchor="middle" >4×</text>
+<text x="624" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Four-model comparison</text>
+<text x="556" y="236" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="556" dy="0">One button runs MFNet, CSFNet-2,</tspan><tspan x="556" dy="26">ResNet-18 + CMAF and RTFNet18V2;</tspan><tspan x="556" dy="26">a failure in one does not stop others</tspan></text>
+<rect x="1020" y="118" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="1044" y="144" width="52" height="52" rx="12" fill="#182a58" stroke="#a78bfa" stroke-width="2" />
+<text x="1070" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#a78bfa" text-anchor="middle" >MK</text>
+<text x="1114" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Masks and overlays</text>
+<text x="1046" y="236" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="1046" dy="0">Class-ID masks, colour masks and</tspan><tspan x="1046" dy="26">RGB overlays with adjustable</tspan><tspan x="1046" dy="26">opacity (0.10–0.85)</tspan></text>
+<rect x="40" y="368" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="64" y="394" width="52" height="52" rx="12" fill="#182a58" stroke="#f59e0b" stroke-width="2" />
+<text x="90" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#f59e0b" text-anchor="middle" >TH</text>
+<text x="134" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Thermal preview + diagnostics</text>
+<text x="66" y="486" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="66" dy="0">Grayscale, Inferno, Magma or</tspan><tspan x="66" dy="26">Viridis preview; value range,</tspan><tspan x="66" dy="26">unique values, histogram</tspan></text>
+<rect x="530" y="368" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="554" y="394" width="52" height="52" rx="12" fill="#182a58" stroke="#3b82f6" stroke-width="2" />
+<text x="580" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#3b82f6" text-anchor="middle" >CL</text>
+<text x="624" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Class analysis</text>
+<text x="556" y="486" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="556" dy="0">Per-class pixel counts, foreground</tspan><tspan x="556" dy="26">coverage, mean max probability,</tspan><tspan x="556" dy="26">inference time</tspan></text>
+<rect x="1020" y="368" width="460" height="226" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="1044" y="394" width="52" height="52" rx="12" fill="#182a58" stroke="#22d3ee" stroke-width="2" />
+<text x="1070" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#22d3ee" text-anchor="middle" >GT</text>
+<text x="1114" y="428" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Ground truth + export</text>
+<text x="1046" y="486" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="1046" dy="0">Optional label PNG → scene mIoU,</tspan><tspan x="1046" dy="26">foreground mIoU, pixel accuracy,</tspan><tspan x="1046" dy="26">per-class IoU; PNG and ZIP downloads</tspan></text>
+</svg>

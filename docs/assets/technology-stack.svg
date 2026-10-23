@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="460" viewBox="0 0 1500 460" role="img" aria-labelledby="t d">
+<title id="t">Technology stack</title><desc id="d">Python, PyTorch, torchvision, Streamlit, NumPy, Pillow, Git LFS and Streamlit Community Cloud as used by the project.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1500" height="460" fill="url(#bg)"/>
+<text x="40" y="52" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#e8eefc" text-anchor="start" >Technology stack</text>
+<text x="40" y="82" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start" >Versions from requirements.txt (CPU PyTorch wheels). Roles from the source code.</text>
+<rect x="40" y="120" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="40" y="120" width="6" height="124" rx="3" fill="#3b82f6" stroke="#3b82f6" stroke-width="0" />
+<text x="66" y="158" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Python</text>
+<text x="66" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#3b82f6" text-anchor="start" >3.12 on Streamlit Cloud</text>
+<text x="66" y="216" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Application and model code</text>
+<rect x="405" y="120" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="405" y="120" width="6" height="124" rx="3" fill="#22d3ee" stroke="#22d3ee" stroke-width="0" />
+<text x="431" y="158" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >PyTorch</text>
+<text x="431" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#22d3ee" text-anchor="start" >2.6.0 (CPU build)</text>
+<text x="431" y="216" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Model definitions, inference</text>
+<rect x="770" y="120" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="770" y="120" width="6" height="124" rx="3" fill="#a78bfa" stroke="#a78bfa" stroke-width="0" />
+<text x="796" y="158" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >torchvision</text>
+<text x="796" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="start" >0.21.0 (CPU build)</text>
+<text x="796" y="216" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >ResNet-18 building blocks</text>
+<rect x="1135" y="120" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="1135" y="120" width="6" height="124" rx="3" fill="#3b82f6" stroke="#3b82f6" stroke-width="0" />
+<text x="1161" y="158" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Streamlit</text>
+<text x="1161" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#3b82f6" text-anchor="start" >1.66.1</text>
+<text x="1161" y="216" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Interactive web interface</text>
+<rect x="40" y="270" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="40" y="270" width="6" height="124" rx="3" fill="#22d3ee" stroke="#22d3ee" stroke-width="0" />
+<text x="66" y="308" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >NumPy</text>
+<text x="66" y="336" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#22d3ee" text-anchor="start" >1.26.4</text>
+<text x="66" y="366" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Arrays, metrics, masks</text>
+<rect x="405" y="270" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="405" y="270" width="6" height="124" rx="3" fill="#a78bfa" stroke="#a78bfa" stroke-width="0" />
+<text x="431" y="308" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Pillow</text>
+<text x="431" y="336" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="start" >≥10.0, &lt;13.0</text>
+<text x="431" y="366" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Image I/O, resizing, overlays</text>
+<rect x="770" y="270" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="770" y="270" width="6" height="124" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="0" />
+<text x="796" y="308" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Git LFS</text>
+<text x="796" y="336" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f59e0b" text-anchor="start" >weights/*.pt, *.pth</text>
+<text x="796" y="366" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Stores the checkpoints</text>
+<rect x="1135" y="270" width="340" height="124" rx="14" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<rect x="1135" y="270" width="6" height="124" rx="3" fill="#3b82f6" stroke="#3b82f6" stroke-width="0" />
+<text x="1161" y="308" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#e8eefc" text-anchor="start" >Streamlit Community Cloud</text>
+<text x="1161" y="336" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#3b82f6" text-anchor="start" >CPU hosting</text>
+<text x="1161" y="366" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start" >Serves the live app</text>
+<text x="40" y="440" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >Python 3.12 is the version named in DEPLOY_TO_STREAMLIT.md; requirements.txt does not pin a Python version.</text>
+</svg>

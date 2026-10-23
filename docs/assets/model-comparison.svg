@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="740" viewBox="0 0 1560 740" role="img" aria-labelledby="t d">
+<title id="t">Four architectures at a glance</title><desc id="d">Cards for MFNet, CSFNet-2, ResNet-18 + CMAF v2.1 and RTFNet18V2 with verified input format, main idea and a simple schematic.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1560" height="740" fill="url(#bg)"/>
+<text x="40" y="52" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#e8eefc" text-anchor="start" >Four architectures, four different fusion strategies</text>
+<text x="40" y="82" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start" >Details are taken from the model source files in architectures/. Schematics are simplified and not to scale.</text>
+<rect x="40" y="112" width="358" height="590" rx="14" fill="#13224a" stroke="#3b82f6" stroke-width="2" />
+<rect x="40" y="112" width="358" height="6" rx="3" fill="#3b82f6" stroke="#3b82f6" stroke-width="0" />
+<text x="62" y="156" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" font-weight="800" fill="#e8eefc" text-anchor="start" >MFNet</text>
+<text x="62" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#22d3ee" text-anchor="start"><tspan x="62" dy="0">Input: one 4-channel tensor</tspan><tspan x="62" dy="20">(RGB + thermal, scaled 0–1)</tspan></text>
+<text x="62" y="242" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="2">MAIN IDEA</text>
+<text x="62" y="266" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="62" dy="0">RGB and thermal encoders with</tspan><tspan x="62" dy="22">different widths (RGB 16→96,</tspan><tspan x="62" dy="22">thermal 16→36 channels)</tspan><tspan x="62" dy="22">MiniInception blocks at stages 4–5</tspan><tspan x="62" dy="22">Features concatenated at bottleneck</tspan><tspan x="62" dy="22">Decoder adds skip features</tspan></text>
+<rect x="56" y="402" width="326" height="270" rx="10" fill="#0a1226" stroke="#2b4286" stroke-width="1" />
+<text x="219.0" y="426" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="2">Schematic</text>
+<rect x="74" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="74" y="488" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<path d="M118,459 L130,459" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M118,501 L130,501" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="130" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="130" y="488" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<path d="M174,459 L186,459" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M174,501 L186,501" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="186" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="186" y="488" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<path d="M230,459 L242,459" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M230,501 L242,501" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="242" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="242" y="488" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<path d="M286,459 L298,459" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M286,501 L298,501" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="298" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="298" y="488" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<text x="74" y="438" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6" text-anchor="start" >RGB encoder</text>
+<text x="74" y="536" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#f97316" text-anchor="start" >Thermal encoder</text>
+<rect x="134" y="550" width="120" height="30" rx="6" fill="#22d3ee" stroke="none" stroke-width="0" />
+<text x="194" y="570" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#06222b" text-anchor="middle" >concat (132 ch)</text>
+<rect x="74" y="608" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="102.0" y="626.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="144" y="608" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="172.0" y="626.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="214" y="608" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="242.0" y="626.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="284" y="608" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="312.0" y="626.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<text x="74" y="664" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9db0d8" text-anchor="start" >skip features added in decoder</text>
+<path d="M322,514 L322,565 L256,565" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M194,580 L194,592 L298,592 L298,608" stroke="#22d3ee" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<rect x="418" y="112" width="358" height="590" rx="14" fill="#13224a" stroke="#22d3ee" stroke-width="2" />
+<rect x="418" y="112" width="358" height="6" rx="3" fill="#22d3ee" stroke="#22d3ee" stroke-width="0" />
+<text x="440" y="156" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" font-weight="800" fill="#e8eefc" text-anchor="start" >CSFNet-2</text>
+<text x="440" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#22d3ee" text-anchor="start"><tspan x="440" dy="0">Input: RGB (3 ch) and thermal</tspan><tspan x="440" dy="20">(1 ch) as separate tensors</tspan></text>
+<text x="440" y="242" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="2">MAIN IDEA</text>
+<text x="440" y="266" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="440" dy="0">STDC2 backbone (STDCNet1446)</tspan><tspan x="440" dy="22">Cosine-similarity attention fusion</tspan><tspan x="440" dy="22">(CS-AFM) at three early stages,</tspan><tspan x="440" dy="22">then a single branch</tspan><tspan x="440" dy="22">Context module + light decoder</tspan></text>
+<rect x="434" y="402" width="326" height="270" rx="10" fill="#0a1226" stroke="#2b4286" stroke-width="1" />
+<text x="597.0" y="426" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="2">Schematic</text>
+<text x="452" y="438" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6" text-anchor="start" >RGB</text>
+<text x="452" y="530" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#f97316" text-anchor="start" >Thermal</text>
+<rect x="452" y="446" width="50" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="452" y="490" width="50" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="477" cy="481" r="9" fill="#22d3ee"/><text x="477" y="485" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >×</text>
+<rect x="526" y="446" width="50" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="526" y="490" width="50" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="551" cy="481" r="9" fill="#22d3ee"/><text x="551" y="485" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >×</text>
+<rect x="600" y="446" width="50" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="600" y="490" width="50" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="625" cy="481" r="9" fill="#22d3ee"/><text x="625" y="485" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >×</text>
+<text x="452" y="550" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="start" >CS-AFM at stages 1–3</text>
+<rect x="678" y="468" width="62" height="28" rx="4" fill="#22d3ee" stroke="none" stroke-width="0" />
+<text x="709" y="486" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#06222b" text-anchor="middle" >single</text>
+<path d="M650,482 L676,482" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="452" y="578" width="90" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="497.0" y="596.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >Context</text>
+<rect x="562" y="578" width="90" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="607.0" y="596.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >Decoder</text>
+<rect x="672" y="578" width="68" height="28" rx="4" fill="#1e293b" stroke="none" stroke-width="0" />
+<text x="706.0" y="596.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >Mask</text>
+<path d="M542,592 L560,592" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M652,592 L670,592" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M709,496 L709,562 L497,562 L497,576" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<text x="452" y="642" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9db0d8" text-anchor="start" >Dual branch → single branch (stride 8)</text>
+<rect x="796" y="112" width="358" height="590" rx="14" fill="#13224a" stroke="#a78bfa" stroke-width="2" />
+<rect x="796" y="112" width="358" height="6" rx="3" fill="#a78bfa" stroke="#a78bfa" stroke-width="0" />
+<text x="818" y="156" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="800" fill="#e8eefc" text-anchor="start" >ResNet-18 + CMAF v2.1</text>
+<text x="818" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#22d3ee" text-anchor="start"><tspan x="818" dy="0">Input: 4-channel tensor, 0–1;</tspan><tspan x="818" dy="20">normalised inside forward()</tspan></text>
+<text x="818" y="242" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="2">MAIN IDEA</text>
+<text x="818" y="266" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="818" dy="0">Two ResNet-18 encoders (thermal</tspan><tspan x="818" dy="22">stem takes 1 channel)</tspan><tspan x="818" dy="22">Cross-modal attention fusion at</tspan><tspan x="818" dy="22">5 scales: channel + 7×7 spatial</tspan><tspan x="818" dy="22">gates, residual 0.5·(RGB+thermal)</tspan><tspan x="818" dy="22">U-Net decoder, dropout 0.10</tspan></text>
+<rect x="812" y="402" width="326" height="270" rx="10" fill="#0a1226" stroke="#2b4286" stroke-width="1" />
+<text x="975.0" y="426" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="2">Schematic</text>
+<rect x="830" y="442" width="44" height="24" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="830" y="514" width="44" height="24" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="852" cy="490" r="11" fill="#a78bfa"/><text x="852" y="495" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" >A</text>
+<path d="M852,466 L852,477" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<path d="M852,514 L852,503" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<rect x="886" y="442" width="44" height="24" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="886" y="514" width="44" height="24" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="908" cy="490" r="11" fill="#a78bfa"/><text x="908" y="495" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" >A</text>
+<path d="M908,466 L908,477" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<path d="M908,514 L908,503" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<rect x="942" y="442" width="44" height="24" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="942" y="514" width="44" height="24" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="964" cy="490" r="11" fill="#a78bfa"/><text x="964" y="495" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" >A</text>
+<path d="M964,466 L964,477" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<path d="M964,514 L964,503" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<rect x="998" y="442" width="44" height="24" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="998" y="514" width="44" height="24" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1020" cy="490" r="11" fill="#a78bfa"/><text x="1020" y="495" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" >A</text>
+<path d="M1020,466 L1020,477" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<path d="M1020,514 L1020,503" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<rect x="1054" y="442" width="44" height="24" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1054" y="514" width="44" height="24" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1076" cy="490" r="11" fill="#a78bfa"/><text x="1076" y="495" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" >A</text>
+<path d="M1076,466 L1076,477" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<path d="M1076,514 L1076,503" stroke="#9db0d8" stroke-width="1.2" fill="none" marker-end="url(#arm)"/>
+<text x="830" y="560" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#a78bfa" text-anchor="start" >A = channel + spatial attention fusion</text>
+<rect x="830" y="588" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="858.0" y="606.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="900" y="588" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="928.0" y="606.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="970" y="588" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="998.0" y="606.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<rect x="1040" y="588" width="56" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="1068.0" y="606.0" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" >dec</text>
+<text x="830" y="646" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9db0d8" text-anchor="start" >U-Net decoder uses fused skip features</text>
+<path d="M1076,501 L1100,501 L1100,574 L850,574 L850,586" stroke="#a78bfa" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<rect x="1174" y="112" width="358" height="590" rx="14" fill="#13224a" stroke="#f59e0b" stroke-width="2" />
+<rect x="1174" y="112" width="358" height="6" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="0" />
+<text x="1196" y="156" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="23" font-weight="800" fill="#e8eefc" text-anchor="start" >RTFNet18V2</text>
+<text x="1196" y="186" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#22d3ee" text-anchor="start"><tspan x="1196" dy="0">Input: RGB (3 ch) and thermal</tspan><tspan x="1196" dy="20">(1 ch) as separate tensors</tspan></text>
+<text x="1196" y="242" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="2">MAIN IDEA</text>
+<text x="1196" y="266" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="1196" dy="0">RTFNet-inspired, not a reproduction</tspan><tspan x="1196" dy="22">Two ResNet-18 encoders</tspan><tspan x="1196" dy="22">Thermal features added to RGB</tspan><tspan x="1196" dy="22">after stem + 4 stages (5 fusions)</tspan><tspan x="1196" dy="22">Upception decoder, 5 stages,</tspan><tspan x="1196" dy="22">1×1 convolution head (default)</tspan></text>
+<rect x="1190" y="402" width="326" height="270" rx="10" fill="#0a1226" stroke="#2b4286" stroke-width="1" />
+<text x="1353.0" y="426" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="2">Schematic</text>
+<text x="1208" y="438" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6" text-anchor="start" >RGB ResNet-18</text>
+<text x="1208" y="536" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#f97316" text-anchor="start" >Thermal ResNet-18</text>
+<rect x="1208" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1208" y="500" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1230" cy="486" r="8" fill="#22d3ee"/><text x="1230" y="491" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >+</text>
+<rect x="1264" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1264" y="500" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1286" cy="486" r="8" fill="#22d3ee"/><text x="1286" y="491" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >+</text>
+<rect x="1320" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1320" y="500" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1342" cy="486" r="8" fill="#22d3ee"/><text x="1342" y="491" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >+</text>
+<rect x="1376" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1376" y="500" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1398" cy="486" r="8" fill="#22d3ee"/><text x="1398" y="491" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >+</text>
+<rect x="1432" y="446" width="44" height="26" rx="4" fill="#3b82f6" stroke="none" stroke-width="0" />
+<rect x="1432" y="500" width="44" height="26" rx="4" fill="#f97316" stroke="none" stroke-width="0" />
+<circle cx="1454" cy="486" r="8" fill="#22d3ee"/><text x="1454" y="491" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#06222b" text-anchor="middle" >+</text>
+<text x="1208" y="560" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="start" >+ = element-wise addition into RGB stream</text>
+<rect x="1208" y="588" width="44" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<rect x="1264" y="588" width="44" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<rect x="1320" y="588" width="44" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<rect x="1376" y="588" width="44" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<rect x="1432" y="588" width="44" height="28" rx="4" fill="#64748b" stroke="none" stroke-width="0" />
+<text x="1208" y="642" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9db0d8" text-anchor="start" >Upception decoder (5 stages) → 1×1 conv</text>
+<path d="M1454,486 L1476,486 L1476,574 L1474,574 L1430,574 L1430,586" stroke="#22d3ee" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<text x="1520" y="726" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9db0d8" text-anchor="end" >Simplified illustrations of source-code structure · not real model output</text>
+</svg>

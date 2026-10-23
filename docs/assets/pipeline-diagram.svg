@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Application workflow</title><desc id="d">Flow from input selection through RGB and thermal handling, four separate model-specific preprocessing and inference paths, predictions, overlays, class analysis and optional ground-truth evaluation.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1226"/><stop offset="1" stop-color="#0f1b3a"/></linearGradient>
+<linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b82f6"/><stop offset="0.6" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#22d3ee"/></marker>
+<marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,1 L10,5 L0,9 z" fill="#9db0d8"/></marker>
+
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<text x="40" y="52" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#e8eefc" text-anchor="start" >Application workflow</text>
+<text x="40" y="82" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#9db0d8" text-anchor="start" >Every model has its own preprocessing and inference path. Source: app.py, inference/preprocessing.py, inference/model_loaders.py</text>
+<text x="40" y="126" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="start" letter-spacing="2">1 · INPUT SOURCE</text>
+<text x="350" y="126" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="start" letter-spacing="2">2 · INPUT HANDLING</text>
+<text x="690" y="126" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="start" letter-spacing="2">3 · MODEL-SPECIFIC PATHS</text>
+<text x="1230" y="126" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#22d3ee" text-anchor="start" letter-spacing="2">4 · OUTPUTS &amp; ANALYSIS</text>
+<rect x="40" y="148" width="270" height="96" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="58" y="184" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e8eefc" text-anchor="start" >MFNet 4-channel PNG</text>
+<text x="58" y="212" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >H×W×4, 8-bit; RGB + thermal</text>
+<rect x="40" y="268" width="270" height="96" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="58" y="304" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e8eefc" text-anchor="start" >Separate RGB + thermal</text>
+<text x="58" y="332" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >Two aligned images</text>
+<rect x="40" y="388" width="270" height="96" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="58" y="424" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#e8eefc" text-anchor="start" >Local MFNet sample</text>
+<text x="58" y="452" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >Sibling MFNet_dataset/ folder</text>
+<rect x="40" y="508" width="270" height="96" rx="10" fill="#13224a" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="58" y="544" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Optional ground-truth label</text>
+<text x="58" y="570" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#9db0d8" text-anchor="start" >Class IDs 0–8, 255 = ignore</text>
+<rect x="350" y="148" width="290" height="356" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="370" y="184" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start"><tspan x="370" dy="0">Split / convert channels</tspan></text>
+<text x="370" y="214" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="370" dy="0">4-ch PNG → RGB (ch 0–2)</tspan><tspan x="370" dy="22">            + thermal (ch 3, mode L)</tspan><tspan x="370" dy="22">Separate files → RGB / L</tspan><tspan x="370" dy="22">Thermal needs &gt;1 unique value</tspan></text>
+<rect x="370" y="326" width="250" height="2" rx="1" fill="#2b4286" stroke="#2b4286" stroke-width="0" />
+<text x="370" y="358" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Resize to 640 × 480</text>
+<text x="370" y="386" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#9db0d8" text-anchor="start"><tspan x="370" dy="0">RGB and thermal: bilinear</tspan><tspan x="370" dy="22">Ground-truth mask: nearest</tspan><tspan x="370" dy="22">Warns if sizes differ</tspan></text>
+<text x="370" y="468" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#22d3ee" text-anchor="start" >Same scene → all four models</text>
+<path d="M310,196 L350,196" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M310,316 L350,316" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M310,436 L350,436" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="690" y="148" width="520" height="172" rx="10" fill="#13224a" stroke="#3b82f6" stroke-width="2" />
+<rect x="690" y="148" width="8" height="172" rx="3" fill="#3b82f6" stroke="#3b82f6" stroke-width="0" />
+<text x="716" y="178" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#e8eefc" text-anchor="start" >MFNet</text>
+<text x="716" y="206" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="1.5">Preprocessing</text>
+<text x="716" y="228" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="716" dy="0">RGB, thermal ÷ 255</tspan><tspan x="716" dy="22">No mean/std</tspan><tspan x="716" dy="22">Concatenate → 4 channels</tspan></text>
+<rect x="960" y="198" width="236" height="100" rx="8" fill="#182a58" stroke="#2b4286" stroke-width="1.5" />
+<text x="1078" y="226" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="1.5">Inference</text>
+<text x="1078" y="252" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#e8eefc" text-anchor="middle" >MFNet</text>
+<text x="1078" y="278" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="500" fill="#22d3ee" text-anchor="middle" >model(x4)</text>
+<path d="M640,326 C670,326 660,234 688,234" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="690" y="340" width="520" height="172" rx="10" fill="#13224a" stroke="#22d3ee" stroke-width="2" />
+<rect x="690" y="340" width="8" height="172" rx="3" fill="#22d3ee" stroke="#22d3ee" stroke-width="0" />
+<text x="716" y="370" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#e8eefc" text-anchor="start" >CSFNet-2</text>
+<text x="716" y="398" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="1.5">Preprocessing</text>
+<text x="716" y="420" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="716" dy="0">Mean/std normalisation</tspan><tspan x="716" dy="22">(CSFNet README statistics)</tspan><tspan x="716" dy="22">RGB 3 ch + thermal 1 ch</tspan></text>
+<rect x="960" y="390" width="236" height="100" rx="8" fill="#182a58" stroke="#2b4286" stroke-width="1.5" />
+<text x="1078" y="418" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="1.5">Inference</text>
+<text x="1078" y="444" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#e8eefc" text-anchor="middle" >CSFNet</text>
+<text x="1078" y="470" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="500" fill="#22d3ee" text-anchor="middle" >model(rgb, thermal)</text>
+<path d="M640,326 C670,326 660,426 688,426" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="690" y="532" width="520" height="172" rx="10" fill="#13224a" stroke="#a78bfa" stroke-width="2" />
+<rect x="690" y="532" width="8" height="172" rx="3" fill="#a78bfa" stroke="#a78bfa" stroke-width="0" />
+<text x="716" y="562" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#e8eefc" text-anchor="start" >ResNet-18 + CMAF v2.1</text>
+<text x="716" y="590" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="1.5">Preprocessing</text>
+<text x="716" y="612" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="716" dy="0">RGB, thermal ÷ 255</tspan><tspan x="716" dy="22">Concatenate → 4 channels</tspan><tspan x="716" dy="22">Normalised inside forward()</tspan></text>
+<rect x="960" y="582" width="236" height="100" rx="8" fill="#182a58" stroke="#2b4286" stroke-width="1.5" />
+<text x="1078" y="610" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="1.5">Inference</text>
+<text x="1078" y="636" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#e8eefc" text-anchor="middle" >CustomDualStreamUNet</text>
+<text x="1078" y="662" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="500" fill="#22d3ee" text-anchor="middle" >model(x4)</text>
+<path d="M640,326 C670,326 660,618 688,618" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="690" y="724" width="520" height="172" rx="10" fill="#13224a" stroke="#f59e0b" stroke-width="2" />
+<rect x="690" y="724" width="8" height="172" rx="3" fill="#f59e0b" stroke="#f59e0b" stroke-width="0" />
+<text x="716" y="754" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="800" fill="#e8eefc" text-anchor="start" >RTFNet18V2</text>
+<text x="716" y="782" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="start" letter-spacing="1.5">Preprocessing</text>
+<text x="716" y="804" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#e8eefc" text-anchor="start"><tspan x="716" dy="0">ImageNet RGB mean/std</tspan><tspan x="716" dy="22">Thermal mean/std (checkpoint)</tspan><tspan x="716" dy="22">RGB 3 ch + thermal 1 ch</tspan></text>
+<rect x="960" y="774" width="236" height="100" rx="8" fill="#182a58" stroke="#2b4286" stroke-width="1.5" />
+<text x="1078" y="802" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#9db0d8" text-anchor="middle" letter-spacing="1.5">Inference</text>
+<text x="1078" y="828" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#e8eefc" text-anchor="middle" >RTFNet18V2</text>
+<text x="1078" y="854" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="500" fill="#22d3ee" text-anchor="middle" >model(rgb, thermal)</text>
+<path d="M640,326 C670,326 660,810 688,810" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<rect x="1230" y="148" width="330" height="128" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="1250" y="184" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Logits → class-ID mask</text>
+<text x="1250" y="214" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >Bilinear resize if not 480×640,</text>
+<text x="1250" y="236" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >softmax, argmax → IDs 0–8</text>
+<path d="M1395,276 L1395,296" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="1230" y="298" width="330" height="128" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="1250" y="334" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Colour mask + RGB overlay</text>
+<text x="1250" y="364" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >Shared 9-class palette; overlay</text>
+<text x="1250" y="386" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >opacity slider (foreground only)</text>
+<path d="M1395,426 L1395,446" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="1230" y="448" width="330" height="128" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="1250" y="484" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Class analysis</text>
+<text x="1250" y="514" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >Per-class pixel counts, foreground</text>
+<text x="1250" y="536" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >coverage, mean max probability</text>
+<path d="M1395,576 L1395,596" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<rect x="1230" y="598" width="330" height="128" rx="10" fill="#13224a" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="1250" y="634" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#e8eefc" text-anchor="start" >Optional ground-truth evaluation</text>
+<text x="1250" y="664" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >Scene mIoU, foreground mIoU,</text>
+<text x="1250" y="686" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >pixel accuracy, per-class IoU</text>
+<path d="M1210,234 L1222,234 L1222,212 L1228,212" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M1210,426 L1222,426 L1222,212 L1228,212" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M1210,618 L1222,618 L1222,212 L1228,212" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M1210,810 L1222,810 L1222,212 L1228,212" stroke="#9db0d8" stroke-width="1.5" fill="none" marker-end="url(#arm)"/>
+<path d="M310,556 L330,556 L330,908 L1584,908 L1584,662 L1562,662" stroke="#a78bfa" stroke-width="2" fill="none" stroke-dasharray="7 6" marker-end="url(#ar)"/>
+<text x="344" y="926" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#a78bfa" text-anchor="start" >matched mask → resized to 640 × 480 (nearest)</text>
+<rect x="40" y="942" width="1520" height="44" rx="10" fill="#13224a" stroke="#2b4286" stroke-width="1.5" />
+<text x="60" y="970" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#9db0d8" text-anchor="start" >Downloads: class-ID PNG and overlay per model, plus one ZIP (masks, overlays, summary.csv).  Saved checkpoint metrics are read from each checkpoint and are never recomputed on the uploaded scene.</text>
+</svg>
